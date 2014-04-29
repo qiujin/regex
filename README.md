@@ -126,12 +126,12 @@
   * Logical line oriented can be matched by enhanced line anchor mode. In Perl this is the **m** modifier, like this `s/pattern1/pattern2/mg`
 
 #### Anchors and other zero-width assertions
-  * Start of line/string: **^, \A**
-  * End of line/string: **$, \z, \Z**
-  * Start of match or end of previous match **\G**. If a match is not successful, the location at which ! \G" matches is reset back to the beginning of the string.
+  * Start of line/string: `^, \A`
+  * End of line/string: `$, \z, \Z`
+  * Start of match or end of previous match `\G`. If a match is not successful, the location at which ! \G" matches is reset back to the beginning of the string.
 
 #### Word boundary
-  * **\b, \<, \>, ...** are word boundary. If **\b** is supported, maybe **\B** not word boundary is also supported too.
+  * `\b, \<, \>, ...` are word boundary. If `\b` is supported, maybe `\B` not word boundary is also supported too.
   * Note that \w and \b maynot agree if there are Unicode. In that case, use \p{L} to detect word.
 
 #### Mode modifier
@@ -145,20 +145,20 @@
   * `\Q` , `\E`  turns off all regex character between them except for \E
 
 #### Grouping
-  * Grouping and capturing by **(...)**
-  * **?:** groups but do not capture. For instance,
+  * Grouping and capturing by `(...)`
+  * `?:` groups but do not capture. For instance,
 
     (?:[0-9]*)
     # groups but do not capture a group of digits
 
   * Some supports name capture. such as
-    * **(?P<name>...)** in Python and PHP and can be refered to as (?P=Area)
-    * **(?<name>...)** in .NET and can be refered by \k<name>.
+    * `(?P<name>...)` in Python and PHP and can be refered to as (?P=Area)
+    * `(?<name>...)` in .NET and can be refered by \k<name>.
   * Atomic grouping (?>...) means once the subexpression matches, what it matches become fixed.
 
 #### Conditional matching
   * `(?if then | else)`
-  * Match a word optional wrapped in **<>**
+  * Match a word optional wrapped in `<>`
 
     (<)?\w+(?(1)>)
 
@@ -302,12 +302,13 @@
 
 # BOOKS
 
-### Mastering Regular Expressions
+### MASTERING REGULAR EXPRESSIONS
 Good book with reference to a lot of popular languages.
 
-[http://www.cs.umsl.edu/~sanjiv/classes/cs2750/lectures/re.pdf](http://www.cs.umsl.edu/~sanjiv/classes/cs2750/lectures/re.pdf)
+### Regular expression and sed and awk
+[Regular expression and sed and awk](http://www.cs.umsl.edu/~sanjiv/classes/cs2750/lectures/re.pdf)
 
-### Regexcrossword
+### REGEXCROSSWORD
 A great website where programmer can play Regex game for fun.
 
-[http://regexcrossword.com](http://regexcrossword.com)
+[Regexcrossword](http://regexcrossword.com)
