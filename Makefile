@@ -15,8 +15,11 @@ help: # show help
 clean: # clean
 	rm -fr env
 
-run: clean # run
+venv: # install virtual environment
+	virtualenv env
+
+run: # run
 	@echo $$HELP
 	@echo
-	virtualenv env
+	test -d env || virtualenv env
 	source env/bin/activate && pip install -r requirements.txt && nose2

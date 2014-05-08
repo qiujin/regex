@@ -305,7 +305,7 @@
 ### MASTERING REGULAR EXPRESSIONS
 Good book with reference to a lot of popular languages.
 
-### Regular expression and sed and awk
+### REGULAR EXPRESSION AND SED AND AWK
 [Regular expression and sed and awk](http://www.cs.umsl.edu/~sanjiv/classes/cs2750/lectures/re.pdf)
 
 ### REGEXCROSSWORD
