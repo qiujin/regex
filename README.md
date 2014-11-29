@@ -369,3 +369,7 @@
 * MASTERING REGULAR EXPRESSIONS
 * [Regular expression and sed and awk](http://www.cs.umsl.edu/~sanjiv/classes/cs2750/lectures/re.pdf)
 * [Regexcrossword](http://regexcrossword.com) A great website where programmer can play Regex game for fun.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/minhhh/regex/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
