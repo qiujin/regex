@@ -1,5 +1,5 @@
 # PRACTICES
-### Meta characters
+## Meta characters
 * `^` (caret) and `$` (dollar) represent the start and the end of a line, respectively.
 * Matching any one of several characters: use square brackets `[...]`. This is called a character class.
     * Dash `-` indicates a range of characters, e.g. [0-9] matches digits, [-a-z] matches lowercase characters.
@@ -9,20 +9,20 @@
 * `|` (bar) means `or` within parentheses. e.g., (first|1st) matches first or 1st.
 * Match word boundary: use meta sequences `\<` and `\>` . e.g., \<cat\> matches the word cat.
 
-### Quantifiers
+## Quantifiers
 * Optional item: use `?` (question mark) , e.g., colou?r matches color or colour. It can match a long expression in parentheses, e.g. 4(th)? matches 4 or 4th
 * `+` means one or more preceding items.
 * `*` means any number of preceding items. So `helll`o +world` matches `hello world`, `hellllo     world` and similar sentences.
 
-### Lazy quantifiers
+## Lazy quantifiers
 * Some tools allow lazy quantifiers **,?, +?, ??, {num,num}?**
 * This means try to match as little as possible
 
-### Positive quantifiers
+## Positive quantifiers
 * Only supported by Java
 * Try to match as much as possible and never giveup.
 
-### Backreference
+## Backreference
 * Backreferencing is the regex feature that allows you to match new text that is the same as some text matched earlier in the expression.
 * `\1`, `\2`, `\3` refers to the first, second, third matched sets. For instance
 
@@ -32,8 +32,7 @@
 ```
 <br/>
 
-
-### Character short hand
+## Character short hand
 * `\a` alert character
 * `\b` backspace inside character class.
 * `\e` escape character
@@ -43,23 +42,23 @@
 * `\t` tab
 * `\v` vertical tab
 
-### Octal escape
+## Octal escape
 * From `\000` to `\377`
 * `\033` for `ESC`
 * `\015\012` for `CR/LF`
 
-### Hex and unicode sequence
+## Hex and unicode sequence
 * Some version allows `\x` to escape hexadecimal values such as `\x0D\x0A` matches `CR/LF`
 * Sometimes use `\u`
 
-### Control character
+## Control character
 * `\cchar` maybe used to match control character sequence in some flavors.
 * `\cH` matches `Control-H`
 
-### Unicode combining character sequence
+## Unicode combining character sequence
 * `\X` is a short hand for `\P{M}\p{M}`, which matches a base character possibly followed by several combining characters.
 
-### Unicode properties, scripts and blocks
+## Unicode properties, scripts and blocks
 * `\p{quality}` matches a character with quality while `\P{quality}` matches a chracter that does not.
 * `\p{L}` - `\p{Letter}` - things considered letters.
 * `\p{M}` `\p{Mark}` – Various characters that are not meant to appear by themselves,
@@ -70,7 +69,7 @@
 * `\p{C}`  `\p{Other}` – Catch-all for everything else (rarely used for normal characters).
 * `\p{Script}` matches characters from specific writing system. For instance, `\p{Hebrew}`
 
-### Class shorthands
+## Class shorthands
 * `\s` is the generic whitespace which match space, tab, newline, carriage return.
 * `\S` is anything but \s
 * `\w` matches [a-zA-Z0-9R]
@@ -78,14 +77,14 @@
 * `\d` matches [0-9]", i.e., a digit
 * `\D` anything not ! \d , i.e., ![ˆ0-9]
 
-### Class operation
+## Class operation
 * `.Net` and `Java` offers class subtraction in different flavors
     * `[[a-z]-[aeiou]]` in .net
     * `[[a-z]&&[^aeiou]]` in Java
 * Class set operation can be mimicked with look around
     * `(?!\p{Cn})\p{InThai}` is the same as `[p{InThai}` && `[^p{Cn}]]`
 
-### Posix character class
+## Posix character class
 * `[:alnum:]` alphabetic characters and numberic characters
 * `[:alpha:]` is alphabetic characters
 * `[:blank:]` space and tab
@@ -97,7 +96,7 @@
 * There is also Posix "collating sequence" for sorting sequence of characters
 * There is also Posix "character euquivalents" to indicate certain characters should be considered identical for sorting and such.
 
-### Popular modifier
+## Popular modifier
 * `i` modifier comes after `m/patter/i` to do match in case-insensitive manner.
 * `g` modifier comes after **s/pattern1/pattern2/g** to do global replace.
 * `s` modifier replace pattern1 by pattern 2 in **s/pattern1/pattern2/**
@@ -111,7 +110,7 @@
 * **m** modifier:**enhanced line anchor** match mode
 * **x** modifier: free format
 
-### Look around: positive look ahead look behind
+## Look around: positive look ahead look behind
 * Look ahead is done with **(?=..)** and **(?<=..)** is look behind. Look around does not consume text, instead they mark positions.
 * For instance, to match Jeff only if it is part of Jeffrey
 
@@ -127,33 +126,33 @@
 <br/>
 
 
-### Look around: negative look ahead and look behind
+## Look around: negative look ahead and look behind
 * Negative look ahead: `?!` successful if cannot match to the right
 * Negative look behind **?<!** successful if cannot match to the left
 
-### Enhanced line anchor
+## Enhanced line anchor
 * Logical line oriented can be matched by enhanced line anchor mode. In Perl this is the **m** modifier, like this `s/pattern1/pattern2/mg`
 
-### Anchors and other zero-width assertions
+## Anchors and other zero-width assertions
 * Start of line/string: `^, \A`
 * End of line/string: `$, \z, \Z`
 * Start of match or end of previous match `\G`. If a match is not successful, the location at which ! \G" matches is reset back to the beginning of the string.
 
-### Word boundary
+## Word boundary
 * `\b, \<, \>, ...` are word boundary. If `\b` is supported, maybe `\B` not word boundary is also supported too.
 * Note that \w and \b maynot agree if there are Unicode. In that case, use \p{L} to detect word.
 
-### Mode modifier
+## Mode modifier
 * In the form `(?modifier)`, such as (?i)or (?-i)
 * (?i) turns on case insensitivity and (?-i) turns it off.
 * `x` free spacing adn comment regex mode
 * `s` dot matches all match mode
 * `m` enhanced line-anchor match mode
 
-### Literal text span
+## Literal text span
 * `\Q` , `\E`  turns off all regex character between them except for \E
 
-### Grouping
+## Grouping
 * Grouping and capturing by `(...)`
 * `?:` groups but do not capture. For instance,
 
@@ -168,7 +167,7 @@
     * `(?<name>...)` in .NET and can be refered by \k<name>.
 * Atomic grouping (?>...) means once the subexpression matches, what it matches become fixed.
 
-### Conditional matching
+## Conditional matching
 * `(?if then | else)`
 * Match a word optional wrapped in `<>`
 
@@ -186,11 +185,11 @@
 <br/>
 
 
-### Mechanics of regular expressions processing
+## Mechanics of regular expressions processing
 * Types of engine: NFA, POSIX NFA, DFA, Hybrid NFA/DFA
 * How they work? TODO
 
-### egrep
+## egrep
 * egrep: do regular expressions on a list of files like this
 
 ```
@@ -199,13 +198,13 @@
 <br/>
 
 
-### sed
+## sed
 * sed is perhaps faster than awk but not as powerful. awk can do what sed can and more
 
-### Awk
+## Awk
 * Good for one liner task, but a full awk program may not be worth it since you already have Perl or Python
 
-### Perl
+## Perl
 * See [[programming:perl]] for the Perl programming language
 * Do what sed does
 
@@ -237,7 +236,7 @@
 
 
 # HOWTOS
-### Removing the leading path from filename
+## Removing the leading path from filename
 
 ```
     # for unix file name
@@ -249,7 +248,7 @@
 <br/>
 
 
-### Get the file name from a path
+## Get the file name from a path
 
 ```
     # everything at the end that is not a backslash or forward slash
@@ -261,7 +260,7 @@
 <br/>
 
 
-### Get both filename and path
+## Get both filename and path
 
 ```
     ˆ(.*)/(.*)$
@@ -274,7 +273,7 @@
 <br/>
 
 
-### Replace leading and trailing spaces
+## Replace leading and trailing spaces
 
 ```
     s/ˆ\s+//;
@@ -283,7 +282,7 @@
 <br/>
 
 
-### Match HTML tags
+## Match HTML tags
 
 ```
     < # Opening "<"
