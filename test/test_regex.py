@@ -11,7 +11,7 @@ class TestBasicReFunction(unittest.TestCase):
 
     def test_001_match_something_at_the_beginning(self):
         # re.match only works at the beginning of string
-        match = re.match(r"^abc", "abcdefabc")
+        match = re.match(r"^abc", "abcdefabc"
         assert match.group(0) == "abc"
         assert match.start(0) == 0
 
